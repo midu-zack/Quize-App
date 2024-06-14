@@ -1,9 +1,11 @@
-import  { useState } from 'react';
-import questions from './components/Questions';
+import { useState } from "react";
+import questions from "./components/Questions";
 
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState(Array(questions.length).fill(null));
+  const [selectedAnswers, setSelectedAnswers] = useState(
+    Array(questions.length).fill(null)
+  );
   const [isQuizFinished, setIsQuizFinished] = useState(false);
   const [score, setScore] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -14,8 +16,6 @@ function App() {
       setShowAnswer(false);
     }
   };
-
- 
 
   const handleAnswerSelect = (answer) => {
     const newSelectedAnswers = [...selectedAnswers];
@@ -38,7 +38,9 @@ function App() {
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="bg-white p-6 rounded shadow-lg w-full max-w-md text-center">
           <h2 className="text-2xl font-bold mb-4">Quiz Finished!</h2>
-          <p className="text-xl">Your Score: {score} / {questions.length}</p>
+          <p className="text-xl">
+            Your Score: {score} / {questions.length}
+          </p>
         </div>
       </div>
     );
@@ -62,25 +64,30 @@ function App() {
             </label>
           </div>
         ))}
-        
+        {showAnswer && (
+          <p className="mt-2 text-sm text-gray-600">
+            Correct Answer:{" "}
+            <span className="font-semibold">
+              {currentQuestion.correctAnswer}
+            </span>
+          </p>
+        )}
         <div className="mt-4 flex justify-between">
-        <button
-            onClick={() => setShowAnswer(!showAnswer)}
-            className="bg-yellow-500 text-white px-4 py-2 rounded items-center"
-          >
-            {showAnswer ? 'Hide Answer' : 'Show Answer'}
-          </button>
           <button
-            onClick={handleNext}
-            disabled={currentQuestionIndex === questions.length - 1}
-            className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
+            onClick={() => setShowAnswer(!showAnswer)}
+            className="bg-yellow-500 text-white px-4 py-2 rounded"
           >
-            Next
+            {showAnswer ? "Hide Answer" : "Show Answer"}
           </button>
-        </div>
-        <div className="mt-4 flex justify-between">
-         
-          {currentQuestionIndex === questions.length - 1 && (
+
+          {currentQuestionIndex < questions.length - 1 ? (
+            <button
+              onClick={handleNext}
+              className="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Next
+            </button>
+          ) : (
             <button
               onClick={handleSubmit}
               className="bg-green-500 text-white px-4 py-2 rounded"
@@ -88,7 +95,6 @@ function App() {
               Submit
             </button>
           )}
-         
         </div>
       </div>
     </div>
