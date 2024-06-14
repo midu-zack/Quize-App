@@ -1,33 +1,36 @@
 const questions = [
   {
-    question: "What is the primary purpose of the HTTP protocol?",
+    question: "Which CSS framework are you using?",
     options: [
-      "To define the structure of HTML documents",
-      "To transfer hypertext requests and information on the internet",
-      "To secure data between client and server",
-      "To style web pages with CSS"
+      "Bootstrap",
+      "Tailwind CSS",
+      "Bulma",
+      "Foundation",
+      "Materialize"
     ],
-    correctAnswer: "To transfer hypertext requests and information on the internet"
+    correctAnswer: "Tailwind CSS"
   },
   {
-    question: "Which of the following is a NoSQL database?",
+    question: "Which JavaScript library or framework do you prefer?",
     options: [
-      "MySQL",
-      "PostgreSQL",
-      "MongoDB",
-      "SQLite"
+      "React",
+      "Vue",
+      "Angular",
+      "Svelte",
+      "jQuery"
     ],
-    correctAnswer: "MongoDB"
+    correctAnswer: "React"
   },
   {
-    question: "In React, what is the purpose of using the useEffect hook?",
+    question: "Which backend technology do you use?",
     options: [
-      "To manage local state in functional components",
-      "To fetch data from an API and perform side effects",
-      "To pass props to child components",
-      "To create a new context for state management"
+      "Node.js",
+      "Django",
+      "Ruby on Rails",
+      "Laravel",
+      "Spring Boot"
     ],
-    correctAnswer: "To fetch data from an API and perform side effects"
+    correctAnswer: "Node.js"
   }
 ];
 
